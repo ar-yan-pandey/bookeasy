@@ -98,6 +98,29 @@ create policy "Providers can insert their own services"
   with check (auth.uid() = provider_id);
 
 -- Policy for providers to update their own services
+
+-- Sample service data
+INSERT INTO services (provider_id, name, description, type, location, price_per_hour, status, opening_time, closing_time, available_days, max_capacity, created_at, updated_at)
+VALUES
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Luxury Conference Room', 'Modern conference room with A/V equipment and seating for 20', 'co-working', 'Downtown Business Center', 75.00, 'approved', '09:00', '18:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], 20, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Creative Studio Space', 'Well-lit studio perfect for photography and art projects', 'co-working', 'Arts District', 45.00, 'approved', '08:00', '20:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'], 15, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Rooftop Event Venue', 'Stunning rooftop venue with city views and bar setup', 'banquet', 'City Center', 200.00, 'approved', '10:00', '23:00', ARRAY['friday', 'saturday', 'sunday'], 100, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Private Dance Studio', 'Mirrored walls, wood floors, and sound system', 'other', 'Performing Arts Center', 35.00, 'approved', '07:00', '22:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'], 25, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Coworking Hot Desk', 'Flexible desk space with high-speed internet and coffee', 'co-working', 'Tech Hub', 15.00, 'approved', '08:00', '20:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], 50, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Recording Studio', 'Professional recording booth with mixing equipment', 'other', 'Music District', 85.00, 'approved', '10:00', '22:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'], 4, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Workshop Space', 'Industrial workspace with tools and workbenches', 'other', 'Maker District', 40.00, 'approved', '09:00', '18:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], 12, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Yoga Studio', 'Peaceful studio with mats and meditation space', 'gym', 'Wellness Center', 30.00, 'approved', '06:00', '21:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'], 20, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Private Theater', 'Intimate screening room with 30 luxury seats', 'other', 'Entertainment Complex', 150.00, 'approved', '11:00', '23:00', ARRAY['friday', 'saturday', 'sunday'], 30, NOW(), NOW()),
+
+('773e32b6-5d81-4e0e-903c-a5951ecdbedd', 'Meeting Room', 'Professional meeting space with whiteboard and projector', 'co-working', 'Business Park', 50.00, 'approved', '09:00', '18:00', ARRAY['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], 10, NOW(), NOW());
 create policy "Providers can update their own services"
   on services for update
   using (auth.uid() = provider_id)

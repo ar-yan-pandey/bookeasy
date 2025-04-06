@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "env": {
+    "REACT_APP_SUPABASE_URL": "https://meoedplfovwuqxresyiw.supabase.co",
+    "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lb2VkcGxmb3Z3dXF4cmVzeWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM5MTg1MjEsImV4cCI6MjA1OTQ5NDUyMX0.Rfz6gIgEqoGULvdTr5q2SpVNEKGIhxbRm5835a_c8k8"
+  }
+}
