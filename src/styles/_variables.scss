@@ -1,0 +1,57 @@
+// Colors
+$primary: #1E0D73;
+$secondary: #FF9900;
+$accent: #B7BDB7;
+$background: #F4F1EB;
+$text-primary: #050315;
+$text-secondary: #64748b;
+$text-dark: #050315;
+$text-light: #F4F1EB;
+$border-color: #e2e8f0;
+$danger: #dc2626;
+$success: #16a34a;
+
+// Typography
+$font-heading: 'Futura', sans-serif;
+$font-body: 'Poppins', sans-serif;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1280px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-fast: 150ms ease-in-out;
+$transition-normal: 250ms ease-in-out;
+$transition-slow: 350ms ease-in-out;

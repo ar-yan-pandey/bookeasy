@@ -1,0 +1,615 @@
+@import './_variables.scss';
+
+.service-detail-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: $background;
+
+  .service-detail-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: $shadow-md;
+    padding: 3rem;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-info-section {
+    .service-image {
+      width: 100%;
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: $shadow-md;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30%;
+        background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+      }
+
+      .service-type {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: $secondary;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: capitalize;
+        font-size: 0.9rem;
+        box-shadow: $shadow-sm;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .service-details {
+      h1 {
+        font-family: $font-heading;
+        color: $text-primary;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .description {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .price-tag {
+        display: inline-flex;
+        align-items: baseline;
+        background: $primary;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: $shadow-sm;
+
+        .amount {
+          font-size: 2rem;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+
+        .unit {
+          font-size: 1rem;
+          opacity: 0.9;
+        }
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+        
+        .info-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+
+          i {
+            color: $primary;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+          }
+
+          h4 {
+            color: $text-primary;
+            font-family: $font-heading;
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+          }
+
+          p {
+            color: $text-secondary;
+            margin: 0;
+            font-size: 1rem;
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      .amenities-section, .rules-section {
+        margin-top: 2.5rem;
+
+        h3 {
+          color: $text-primary;
+          font-family: $font-heading;
+          font-size: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .amenities-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .amenity-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+
+          i {
+            color: $secondary;
+            font-size: 1.1rem;
+          }
+
+          span {
+            color: $text-secondary;
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .rules-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          color: $text-secondary;
+          margin-bottom: 1rem;
+          padding-left: 1.5rem;
+          position: relative;
+
+          &:before {
+            content: '•';
+            color: $primary;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .booking-section {
+    .calendar-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: $shadow-md;
+
+      h2 {
+        color: $text-primary;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        font-family: $font-heading;
+        text-align: center;
+      }
+
+      .custom-calendar {
+        width: 100%;
+        border: none;
+        background: white;
+        padding: 1.5rem;
+        font-family: $font-body;
+        box-shadow: inset 0 0 0 1px rgba($primary, 0.1);
+        border-radius: 12px;
+
+        .react-calendar__navigation {
+          margin-bottom: 1.5rem;
+
+          button {
+            min-width: 44px;
+            background: none;
+            font-size: 1.2rem;
+            color: $text-primary;
+
+            &:hover {
+              background: lighten($primary, 45%);
+            }
+
+            &:disabled {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        .react-calendar__month-view__weekdays {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 0.8rem;
+          color: $text-secondary;
+          margin-bottom: 0.5rem;
+
+          abbr {
+            text-decoration: none;
+            border: none;
+          }
+        }
+
+        .react-calendar__month-view__days {
+          gap: 0.5rem;
+
+          button {
+            height: 44px;
+            margin: 2px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: $text-primary;
+
+            &:hover {
+              background: lighten($primary, 45%);
+            }
+
+            &:disabled {
+              opacity: 0.5;
+              background: none;
+            }
+          }
+        }
+
+        .react-calendar__tile--active {
+          background: $primary !important;
+          color: white !important;
+          font-weight: 600;
+
+          &:hover {
+            background: darken($primary, 5%) !important;
+          }
+        }
+
+        .react-calendar__tile--now {
+          background: lighten($primary, 42%);
+          font-weight: 600;
+        }
+      }
+
+      .next-button {
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        transition: all 0.2s;
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+
+        &:not(:disabled):hover {
+          transform: translateY(-2px);
+          box-shadow: $shadow-md;
+        }
+      }
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: $text-secondary;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+
+    h2 {
+      color: $text-primary;
+      font-family: $font-heading;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $text-primary;
+        font-weight: 500;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+        }
+      }
+    }
+
+    .price-display {
+      font-size: 1.25rem;
+      color: $text-primary;
+      font-weight: 600;
+      margin: 1.5rem 0;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.btn-secondary {
+          background: #f3f4f6;
+          color: $text-primary;
+          border: 1px solid #d1d5db;
+
+          &:hover {
+            background: #e5e7eb;
+          }
+        }
+
+        &.btn-primary {
+          background: $primary;
+          color: white;
+          border: none;
+
+          &:hover {
+            background: darken($primary, 5%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.service-detail-page {
+  min-height: 100vh;
+  background: $background;
+  padding: 2rem;
+
+  .service-header {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+    .service-image {
+      position: relative;
+      height: 400px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .service-type-badge {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: rgba($primary, 0.9);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        backdrop-filter: blur(4px);
+      }
+    }
+
+    .service-info {
+      padding: 2rem;
+
+      h1 {
+        font-family: $font-heading;
+        color: $text-primary;
+        font-size: 2.5rem;
+        margin: 0 0 1.5rem;
+      }
+
+      .service-meta {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        .meta-item {
+          display: flex;
+          align-items: center;
+          color: $text-secondary;
+          font-size: 1.1rem;
+
+          i {
+            color: $primary;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .description {
+        color: $text-secondary;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .booking-section {
+    max-width: 1440px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+    }
+
+    .calendar-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+      h2 {
+        font-family: $font-heading;
+        color: $text-primary;
+        margin: 0 0 1.5rem;
+      }
+
+      .react-calendar {
+        width: 100%;
+        border: none;
+        font-family: $font-body;
+
+        .react-calendar__tile--active {
+          background: $primary;
+          color: white;
+        }
+
+        .react-calendar__tile--now {
+          background: rgba($primary, 0.1);
+        }
+      }
+    }
+
+    .booking-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+      h2 {
+        font-family: $font-heading;
+        color: $text-primary;
+        margin: 0 0 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+          display: block;
+          color: $text-primary;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        input, select {
+          width: 100%;
+          padding: 1rem;
+          border: 2px solid transparent;
+          border-radius: 12px;
+          font-size: 1rem;
+          background: rgba($background, 0.5);
+          transition: all 0.2s;
+
+          &:focus {
+            outline: none;
+            border-color: $primary;
+            background: white;
+            box-shadow: 0 4px 12px rgba($primary, 0.1);
+          }
+        }
+      }
+
+      .booking-summary {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba($background, 0.5);
+        border-radius: 12px;
+
+        .summary-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+          color: $text-secondary;
+
+          &.total {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba($text-secondary, 0.1);
+            font-weight: 600;
+            color: $text-primary;
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 1.2rem;
+        background: $primary;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background: darken($primary, 5%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba($primary, 0.2);
+        }
+      }
+    }
+  }
+}

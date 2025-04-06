@@ -1,0 +1,116 @@
+@import './_variables.scss';
+
+@import 'variables';
+
+.service-filters {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(8px);
+  max-width: 1440px;
+  margin: 0 auto 2rem;
+
+  .search-box {
+    width: 100%;
+    max-width: 400px;
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+
+    &:hover, &:focus-within {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: rgba($primary, 0.2);
+    }
+
+    svg {
+      color: $primary;
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      color: $text-primary;
+      padding: 0.25rem 0;
+
+      &::placeholder {
+        color: rgba($text-primary, 0.5);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 2px rgba($primary, 0.1);
+      }
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        color: $text-secondary;
+        font-size: 0.9rem;
+
+        svg {
+          font-size: 1.1rem;
+        }
+      }
+
+      select {
+        padding: 0.8rem 2.5rem 0.8rem 1rem;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        background: rgba($background, 0.5);
+        font-size: 0.9rem;
+        color: $text-primary;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1rem;
+        transition: all 0.2s;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          background: transparent;
+          box-shadow: 0 4px 12px rgba($primary, 0.1);
+        }
+      }
+    }
+  }
+}

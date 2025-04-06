@@ -1,0 +1,107 @@
+@import 'variables';
+
+.provider-bookings {
+  padding: 2rem;
+  min-height: 100vh;
+  background: $background;
+
+  &.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: $font-heading;
+    color: $text-primary;
+    margin-bottom: 2rem;
+  }
+
+  .error-message {
+    background: rgba($danger, 0.1);
+    color: $danger;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .no-bookings {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    h3 {
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+    }
+  }
+
+  .bookings-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .booking-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .booking-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-family: $font-heading;
+        color: $text-primary;
+        margin: 0;
+        font-size: 1.25rem;
+      }
+    }
+
+    .booking-details {
+      margin-bottom: 1.5rem;
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba($border-color, 0.5);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .label {
+          color: $text-secondary;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .booking-actions {
+      display: flex;
+      justify-content: flex-end;
+
+      .MuiFormControl-root {
+        min-width: 150px;
+      }
+    }
+  }
+}

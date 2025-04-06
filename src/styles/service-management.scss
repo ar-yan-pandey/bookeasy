@@ -1,0 +1,283 @@
+@import './_variables.scss';
+
+$warning: #F59E0B;
+$success: #10B981;
+$danger: #EF4444;
+
+.service-management {
+  .table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+
+  table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed;
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #edf2f7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:nth-child(1) { width: 12%; } // Name
+      &:nth-child(2) { width: 18%; } // Provider
+      &:nth-child(3) { width: 10%; } // Type
+      &:nth-child(4) { width: 12%; } // Location
+      &:nth-child(5) { width: 10%; } // Price/Hour
+      &:nth-child(6) { width: 12%; } // Hours
+      &:nth-child(7) { width: 8%; }  // Capacity
+      &:nth-child(8) { width: 8%; }  // Status
+      &:nth-child(9) { width: 10%; } // Actions
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: $text-primary;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1rem 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    tr {
+      &:hover {
+        background: #f8fafc;
+      }
+
+      &.status-pending {
+        background: rgba($warning, 0.05);
+      }
+
+      &.status-approved {
+        background: rgba($success, 0.05);
+      }
+
+      &.status-rejected {
+        background: rgba($danger, 0.05);
+      }
+    }
+
+    td {
+      vertical-align: middle;
+
+      &.text-center {
+        text-align: center;
+      }
+
+      &.actions {
+        white-space: nowrap;
+        text-align: right;
+        padding-right: 1.5rem;
+        min-width: 100px;
+
+        button {
+          width: 32px;
+          height: 32px;
+          padding: 0;
+          border-radius: 50%;
+          border: none;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          transition: all 0.15s ease-in-out;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.85;
+
+          &:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+          }
+
+          &.btn-edit {
+            background: rgba($primary, 0.12);
+            color: $primary;
+            &:hover { 
+              background: $primary;
+              color: white;
+              box-shadow: 0 3px 6px rgba($primary, 0.2);
+            }
+          }
+
+          &.btn-delete {
+            background: rgba($danger, 0.12);
+            color: $danger;
+            &:hover { 
+              background: $danger;
+              color: white;
+              box-shadow: 0 3px 6px rgba($danger, 0.2);
+            }
+          }
+
+          &.btn-save {
+            background: rgba($success, 0.12);
+            color: $success;
+            &:hover { 
+              background: $success;
+              color: white;
+              box-shadow: 0 3px 6px rgba($success, 0.2);
+            }
+          }
+
+          &.btn-cancel {
+            background: rgba(#64748b, 0.12);
+            color: #64748b;
+            &:hover { 
+              background: #64748b;
+              color: white;
+              box-shadow: 0 3px 6px rgba(#64748b, 0.2);
+            }
+          }
+        }
+      }
+
+      .time-inputs {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        &:after {
+          content: '-';
+          color: $text-primary;
+          font-weight: 500;
+        }
+
+        input {
+          width: calc(50% - 0.25rem);
+        }
+      }
+
+      input, select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 0.9rem;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          box-shadow: 0 0 0 2px rgba($primary, 0.1);
+        }
+
+        &[type="time"] {
+          font-family: 'Poppins', sans-serif;
+          padding: 0.4rem;
+        }
+
+        &[type="number"] {
+          text-align: right;
+          &::-webkit-inner-spin-button {
+            opacity: 1;
+          }
+        }
+      }
+
+      .status-badge {
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.pending {
+          background: rgba($warning, 0.1);
+          color: $warning;
+        }
+
+        &.approved {
+          background: rgba($success, 0.1);
+          color: $success;
+        }
+
+        &.rejected {
+          background: rgba($danger, 0.1);
+          color: $danger;
+        }
+
+        &:hover {
+          filter: brightness(0.95);
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+
+      button {
+        padding: 0.4rem 0.8rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.btn-edit {
+          background: rgba($primary, 0.1);
+          color: $primary;
+
+          &:hover {
+            background: rgba($primary, 0.2);
+          }
+        }
+
+        &.btn-delete {
+          background: rgba($danger, 0.1);
+          color: $danger;
+
+          &:hover {
+            background: rgba($danger, 0.2);
+          }
+        }
+
+        &.btn-save {
+          background: rgba($success, 0.1);
+          color: $success;
+
+          &:hover {
+            background: rgba($success, 0.2);
+          }
+        }
+
+        &.btn-cancel {
+          background: #f3f4f6;
+          color: $text-primary;
+
+          &:hover {
+            background: #e5e7eb;
+          }
+        }
+      }
+    }
+  }
+
+  .error {
+    color: $danger;
+    padding: 1rem;
+    background: rgba($danger, 0.1);
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: $text-dark;
+  }
+}

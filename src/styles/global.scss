@@ -1,0 +1,88 @@
+@import './_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/futura-pt');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: $background;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f4f1eb 0%, #ffffff 100%);
+  color: $text-primary;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Futura PT', 'Futura', sans-serif;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: $tablet) {
+    padding: 0 2rem;
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &-primary {
+    background-color: $primary;
+    color: white;
+    &:hover:not(:disabled) {
+      background-color: darken($primary, 10%);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary;
+    color: $text-primary;
+    &:hover:not(:disabled) {
+      background-color: darken($secondary, 10%);
+    }
+  }
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid $accent;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
+}
